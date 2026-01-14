@@ -1,0 +1,279 @@
+{
+  "height": 28,
+  "spacing": 5,
+  "position": "top",
+
+  "modules-left": [
+    "group/Workspaces",
+    "custom/dec1",
+    "group/Windows",
+    "mpris"
+  ],
+
+  "modules-center": [],
+
+  "modules-right": [
+    "group/Language",
+    "custom/split",
+    "group/Volume",
+    "custom/split",
+    "group/System",
+    "custom/split",
+    "group/Network",
+    "custom/split",
+    "group/Clock",
+    "custom/split",
+    "group/Utils",
+    "group/Tray"
+  ],
+
+  "custom/openbracket": {
+    "format": "[",
+    "tooltip": false
+  },
+
+  "custom/closebracket": {
+    "format": "]",
+    "tooltip": false
+  },
+
+  "custom/split": {
+    "format": " | ",
+    "tooltip": false
+  },
+
+  "custom/dec1": {
+    "format": "|",
+    "tooltip": false
+  },
+
+  "custom/sprt": {
+    "format": " ",
+    "tooltip": false
+  },
+  
+  "custom/sprt2": {
+    "format": "-",
+    "tooltip": false
+  },
+
+  "group/Tray": {
+    "orientation": "horizontal",
+    "modules": [
+      "tray"
+    ]
+  },
+
+  "group/Utils": {
+    "orientation": "horizontal",
+    "modules": [
+      "idle_inhibitor"
+    ]
+  },
+
+  "group/System": {
+    "orientation": "horizontal",
+    "modules": [
+      "cpu",
+      "custom/split",
+      "memory"
+    ]
+  },
+
+  "group/Language": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/capslock",
+      "custom/sprt",
+      "custom/language"
+    ]
+  },
+
+  "group/Volume": {
+    "orientation": "horizontal",
+    "modules": [
+      "wireplumber"
+    ]
+  },
+
+  // "group/Uptime": {
+    // "orientation": "horizontal",
+    // "modules": [
+      // "custom/uptime"
+    // ]
+  // },
+
+  "group/Network": {
+    "orientation": "horizontal",
+    "modules": [
+      "network"
+    ]
+  },
+
+  "group/Clock": {
+    "orientation": "horizontal",
+    "modules": [
+      "clock"
+    ]
+  },
+
+  "group/Windows": {
+    "orientation": "horizontal",
+    "modules": [
+      "hyprland/window"
+    ]
+  },
+
+  "group/Workspaces": {
+    "orientation": "horizontal",
+    "modules": [
+      "hyprland/workspaces"
+    ]
+  },
+
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "active-only": false,
+    "format": "{icon}",
+    "format-icons": {
+        "1": "M",
+        "2": "BRW",
+        "3": "CM",
+        "4": "CM2",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "ST",
+        "9": "TERM",
+        "10": "*"
+    },
+    "persistent-workspaces": {
+      "*": 10
+    }
+  },
+
+  // "custom/power": {
+    // "format": "POW",
+    // "tooltip": false,
+    // "on-click": "~/.config/waybar/scripts/power_menu.sh"
+  // },
+
+  // "custom/clipboard": {
+    // "format": "CLI",
+    // "tooltip": false,
+    // "on-click": "~/.config/waybar/scripts/rofi-cliphist.sh"
+  // },
+
+  "custom/language": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/keyboard_status.sh",
+    "interval": 1,
+    "signal": 2,
+    "on-click": "~/.config/waybar/scripts/toggle_layout.sh",
+    "tooltip": false
+  },
+
+  "custom/capslock": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/capslock_status.sh",
+    "interval": 1,
+    "tooltip": false
+  },
+
+  "mpris": {
+    "format": "MUSIC [{status_icon}]",
+    "interval": 1,
+    "dynamic-len": 40,
+    "status-icons": {
+      "playing": "PL",
+      "paused": "ST",
+      "stopped": "..."
+    },
+    "dynamic-order": ["artist"]
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "rewrite": {
+      "^$": "<i>Window title</i>"
+    },
+    "icon": true,
+    "icon-size": 16,
+    "max-length": 125,
+    "min-length": 5,
+    "all-outputs": true
+  },
+
+  // "custom/uptime": {
+    // "format": "{}",
+    // "exec": "awk '{printf \"%dh, %dm\\n\", int($1/3600), int(($1%3600)/60)}' /proc/uptime",
+    // "interval": 60,
+    // "tooltip": true,
+    // "tooltip-format": "System uptime"
+  // },
+ 
+  "cpu": {
+    "format": "CPU {usage}%",
+    "tooltip": false,
+    "interval": 2,
+    "on-click": "foot -e htop"
+  },
+
+  "memory": {
+    "format": "MEM {}%",
+    "tooltip": false,
+    "interval": 2,
+    "on-click": "foot -e htop"
+  },
+
+  "clock": {
+    "format": "{:%H:%M - %d.%m}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " "
+    }
+  },
+
+  "network": {
+    "interface": "wlp0s19f2u1",
+    "interval": 10,
+    "family": "ipv4",
+    "rfkill": true,
+
+    "format-wifi": "WIFI {essid}",
+    "format-ethernet": "LAN",
+    "format-linked": "LINK",
+    "format-disconnected": "DISC",
+    "format-disabled": "DISA",
+
+    "tooltip": true,
+    "tooltip-format-wifi": "SSID: {essid}\nBSSID: {bssid}\nIP: {ipaddr}\nSignal: {signalStrength}% ({signaldBm} dBm)\nFrequency: {frequency} GHz",
+    "tooltip-format-ethernet": "Interface: {ifname}\nIP: {ipaddr}\nNetmask: {netmask} (/{cidr})",
+    "tooltip-format-disconnected": "No active connection",
+    "tooltip-format-disabled": "Wireless blocked by rfkill",
+
+    "on-click": "nm-connection-editor"
+  },
+
+  "wireplumber": {
+    "format": "VOL {volume}%",
+    "format-muted": "MUT",
+    "interval": 5,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "exec blueman-manager",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "scroll-step": 5,
+    "tooltip-format": "{node_name}"
+  },
+
+  "tray": {
+    "icon-size": 20,
+    "spacing": 5
+  }
+}
