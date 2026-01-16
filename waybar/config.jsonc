@@ -134,8 +134,10 @@
   "hyprland/workspaces": {
     "all-outputs": true,
     "active-only": false,
+    "show-special": true,
     "format": "{icon}",
     "format-icons": {
+        "special": "WE",
         "1": "M",
         "2": "BRW",
         "3": "CM",

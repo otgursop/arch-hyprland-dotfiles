@@ -125,6 +125,12 @@ button {
   background: @second-background;
 }
 
+#workspaces button.special {
+  border-top: 4px solid @purple-color;
+  color: @focused;
+  background-color: @background;
+}
+
 #workspaces button.urgent {
   background-color: @background;
   border-top: 4px solid @red-color;
