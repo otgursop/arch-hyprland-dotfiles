@@ -1,6 +1,7 @@
 @define-color background #1D2021;
+@define-color background-rgba rgba(29, 32, 33, 0.95);
 @define-color second-background #3C3836;
-@define-color text #BDAE93;
+@define-color text #D5C4A1;
 @define-color focused #FBF1C7;
 @define-color focused-darker #F2E5BC;
 @define-color borders #AF5A25;
@@ -12,19 +13,20 @@
 
 @define-color orange-color #D65D0E;
 @define-color gray-color #3C3836;
+@define-color gray-light-color #504945;
 @define-color purple-color #8F3F71;
 @define-color green-color #79740E;
 @define-color red-color #9D0006;
 @define-color blue-color #076678;
 @define-color aqua-color #427B58;
 
-@define-color hover-gray #D5C4A1;
+@define-color hover-gray #BDAE93;
 
 * {
   border: none;
   border-radius: 0px;
   font-family: "JetBrainsMono Nerd Font";
-  font-weight: bold;
+  font-weight: 500;
   font-size: 16px;
   min-height: 20px;
   margin: 0;
@@ -37,47 +39,14 @@
 }
 
 window#waybar {
-  background-color: transparent;
+  background-color: @background;
   border-bottom: 0;
   color: @text;
-  background-color: @background;
-  transition: background-color 0.5s;
-}
-
-window#waybar.hidden {
-  opacity: 0.2;
 }
 
 window#waybar.empty #window {
-  background-color: transparent;
+  transition: background-color 0.5s;
 }
-
-/* .modules-left { */
-/*   margin: 5px 0 3px 9px; */
-/*   padding: 0 10px 0 10px; */
-/*   background-color: @background; */
-/*   border: 3px solid @focused; */
-/*   border-radius: 0; */ 
-/*   box-shadow: 3px 3px 0 0 rgba(26, 26, 26, 1.0); */
-/* } */
-
-/* .modules-center { */
-/*   margin: 5px 0 3px 0; */
-/*   padding: 0 10px 0 10px; */
-/*   background-color: @background; */
-/*   border: 3px solid @focused; */
-/*   border-radius: 0; */
-/*   box-shadow: 3px 3px 0 0 rgba(26, 26, 26, 1.0); */
-/* } */
-
-/* .modules-right { */
-/*   margin: 5px 9px 3px 0; */
-/*   padding: 0 10px 0 10px; */
-/*   background-color: @background; */
-/*   border: 3px solid @focused; */
-/*   border-radius: 0; */
-/*   box-shadow: 3px 3px 0 0 rgba(26, 26, 26, 1.0); */
-/* } */
 
 tooltip {
   background-color: rgba(28, 28, 28, 0.9);
@@ -97,7 +66,7 @@ button {
 }
 
 #workspaces button {
-  padding: 0px 6px;
+  padding: 0px 5px;
   margin: 0px 0px 0px 0px;
   background-color: transparent;
   color: @text;
@@ -105,36 +74,33 @@ button {
 }
 
 #workspaces button:not(.empty) {
-  border-top: 4px solid @aqua-color;
   color: @text;
-  background: @background;
+  border-top: 4px solid @aqua-color;
 }
 
 #workspaces button.empty {
-  border-top: 4px solid @gray-color;
   color: @text;
-  background: @background;
+  border-top: 4px solid @gray-light-color;
 }
 
 #workspaces button:hover {
   background-color: @second-background;
+  transition: background-color;
 }
 
 #workspaces button.active {
   color: @focused;
-  background: @second-background;
+  background-color: @second-background;
 }
 
 #workspaces button.special {
-  border-top: 4px solid @purple-color;
   color: @focused;
-  background-color: @background;
+  border-top: 4px solid @purple-color;
 }
 
 #workspaces button.urgent {
-  background-color: @background;
-  border-top: 4px solid @red-color;
   color: @text;
+  border-top: 4px solid @red-color;
 }
 
 .modules-right > widget:last-child > #workspaces {
@@ -144,28 +110,25 @@ button {
 #mpris {
   margin: 0 0 0 5px;
   padding: 0 5px;
+  color: @text;
   border-top: 4px solid @red-color;
-  background-color: @background;
-  color: @focused;
 }
 
 #mpris.playing {
-  background-color: @background;
-  border-top: 4px solid @aqua-color;
   border-radius: 0;
-  color: @focused;
+  color: @text;
+  border-top: 4px solid @aqua-color;
 }
 
 #window {
   color: @focused;
-  border-top: 4px solid @second-background;
-  background-color: @background;
   padding: 0 5px;
+  border-top: 4px solid @gray-light-color;
 }
 
 #network.ethernet {
   color: @text;
-  border-top: 4px solid @aqua-color;
+  border-top: 4px solid @blue-color;
 }
 
 #network.wifi {
@@ -180,95 +143,84 @@ button {
 
 #idle_inhibitor {
   color: @focused-darker;
+  border-top: 4px solid @orange-color;
 }
 
 #clock {
   color: @focused;
-  border-top: 4px solid @second-background;
-  background-color: @background;
-  padding: 0px 5px 0px 5px;
+  border-top: 4px solid @gray-light-color;
 }
 
 #custom-language {
   color: @text;
   border-top: 4px solid @orange-color;
-  background-color: @background;
-  padding: 0px 5px 0px 5px
 }
 
 #wireplumber {
   color: @focused-darker;
-  border-top:4px solid @purple-color;
-  background-color: @background;
-  padding: 0px 5px 0px 5px
+  border-top: 4px solid @purple-color;
 }
 
 #wireplumber.muted {
   color: @text;
-  border-top: 4px solid @purple-color;
-  background-color: @background;
-  padding: 0px 5px 0px 5px
+  border-top: 4px solid @gray-light-color;
 }
 
 #cpu {
   color: @text;
   border-top: 4px solid @blue-color;
-  background-color: @background;
-  padding: 0px 5px 0px 5px
 }
 
 #memory {
   color: @text;
   border-top: 4px solid @green-color;
-  background-color: @background;
-  padding: 0px 5px 0px 5px
 }
 
 #custom-capslock {
   color: @text;
   border-top: 4px solid @red-color;
-  background-color: @background; 
-  padding: 0px 5px 0px 5px
 }
 
+#mpris,
 #tray,
 #cpu,
 #memory,
 #network,
 #wireplumber,
 #custom-capslock
-#custom-clipboard,
-#custom-uptime,
-#custom-language,
-#custom-power,
-#custom-bluetooth {
+#custom-language {
   color: @text;
   padding: 0;
 }
 
-#cpu:hover,
-#memory:hover,
-#wireplumber.muted:hover,
-#wireplumber:hover,
-#custom-clipboard:hover,
-#custom-uptime:hover,
-#custom-capslock:hover,
-#custom-language:hover,
-#custom-power:hover,
-#network:hover,
-#idle_inhibitor:hover {
-  color: @hover-gray;
-}
+/* #mpris:hover, */
+/* #cpu:hover, */
+/* #memory:hover, */
+/* #wireplumber.muted:hover, */
+/* #wireplumber:hover, */
+/* #custom-capslock:hover, */
+/* #custom-language:hover, */
+/* #network:hover, */
+/* #idle_inhibitor:hover { */
+/*   color: @hover-gray; */
+/* } */
 
 #idle_inhibitor {
-  border-top: 4px solid @orange-color;
   padding: 0;
+}
+
+#custom-sprt,
+#custom-dec1,
+#custom-sprt2,
+#custom-sprt3,
+#custom-split {
+  color: @gray-color;
 }
 
 #tray {
   color: #FFFFFF;
-  border-top: 4px solid @second-background;
   padding: 0;
+  border-top: 4px solid @gray-light-color;
 }
 
 @keyframes blink {

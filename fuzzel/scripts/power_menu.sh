@@ -6,7 +6,7 @@ power_icon=""
 exit_session_icon="󰈆"
 
 options="$lock_icon Lock
-$exit_session_icon Exit Session  
+$exit_session_icon Exit Session
 $reboot_icon Reboot
 $power_icon Power Off"
 

@@ -1,18 +1,19 @@
 {
-  "height": 28,
+  "height": 27,
   "spacing": 5,
   "position": "top",
 
   "modules-left": [
     "group/Workspaces",
     "custom/dec1",
-    "group/Windows",
-    "mpris"
+    "group/Windows"
   ],
 
   "modules-center": [],
 
   "modules-right": [
+    "mpris",
+    "custom/split",
     "group/Language",
     "custom/split",
     "group/Volume",
@@ -24,6 +25,7 @@
     "group/Clock",
     "custom/split",
     "group/Utils",
+    "custom/sprt3",
     "group/Tray"
   ],
 
@@ -53,7 +55,12 @@
   },
   
   "custom/sprt2": {
-    "format": "-",
+    "format": " \\ ",
+    "tooltip": false
+  },
+
+  "custom/sprt3": {
+    "format": "\\",
     "tooltip": false
   },
 
@@ -75,7 +82,7 @@
     "orientation": "horizontal",
     "modules": [
       "cpu",
-      "custom/split",
+      "custom/sprt2",
       "memory"
     ]
   },
@@ -84,7 +91,6 @@
     "orientation": "horizontal",
     "modules": [
       "custom/capslock",
-      "custom/sprt",
       "custom/language"
     ]
   },
@@ -95,13 +101,6 @@
       "wireplumber"
     ]
   },
-
-  // "group/Uptime": {
-    // "orientation": "horizontal",
-    // "modules": [
-      // "custom/uptime"
-    // ]
-  // },
 
   "group/Network": {
     "orientation": "horizontal",
@@ -132,20 +131,18 @@
   },
 
   "hyprland/workspaces": {
-    "all-outputs": true,
-    "active-only": false,
     "show-special": true,
     "format": "{icon}",
     "format-icons": {
         "special": "WE",
-        "1": "M",
-        "2": "BRW",
-        "3": "CM",
-        "4": "CM2",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
         "5": "5",
         "6": "6",
         "7": "7",
-        "8": "ST",
+        "8": "8",
         "9": "TERM",
         "10": "*"
     },
@@ -154,41 +151,28 @@
     }
   },
 
-  // "custom/power": {
-    // "format": "POW",
-    // "tooltip": false,
-    // "on-click": "~/.config/waybar/scripts/power_menu.sh"
-  // },
-
-  // "custom/clipboard": {
-    // "format": "CLI",
-    // "tooltip": false,
-    // "on-click": "~/.config/waybar/scripts/rofi-cliphist.sh"
-  // },
-
   "custom/language": {
     "format": "{}",
-    "exec": "~/.config/waybar/scripts/keyboard_status.sh",
-    "interval": 1,
+    "exec": "~/.config/waybar/scripts/keyboard_status.sh", "interval": 1,
     "signal": 2,
     "on-click": "~/.config/waybar/scripts/toggle_layout.sh",
     "tooltip": false
   },
 
   "custom/capslock": {
-    "format": "{}",
+    "format": "{} ",
     "exec": "~/.config/waybar/scripts/capslock_status.sh",
     "interval": 1,
     "tooltip": false
   },
 
   "mpris": {
-    "format": "MUSIC [{status_icon}]",
+    "format": "[{status_icon}] - sound",
     "interval": 1,
     "dynamic-len": 40,
     "status-icons": {
-      "playing": "PL",
-      "paused": "ST",
+      "playing": "󰐊",
+      "paused": "󰏤",
       "stopped": "..."
     },
     "dynamic-order": ["artist"]
@@ -199,37 +183,29 @@
     "rewrite": {
       "^$": "<i>Window title</i>"
     },
-    "icon": true,
+    "icon": false,
     "icon-size": 16,
     "max-length": 125,
     "min-length": 5,
     "all-outputs": true
   },
 
-  // "custom/uptime": {
-    // "format": "{}",
-    // "exec": "awk '{printf \"%dh, %dm\\n\", int($1/3600), int(($1%3600)/60)}' /proc/uptime",
-    // "interval": 60,
-    // "tooltip": true,
-    // "tooltip-format": "System uptime"
-  // },
- 
   "cpu": {
-    "format": "CPU {usage}%",
+    "format": " {usage}%",
     "tooltip": false,
     "interval": 2,
     "on-click": "foot -e htop"
   },
 
   "memory": {
-    "format": "MEM {}%",
+    "format": " {}%",
     "tooltip": false,
     "interval": 2,
     "on-click": "foot -e htop"
   },
 
   "clock": {
-    "format": "{:%H:%M - %d.%m}",
+    "format": " {:%H:%M  󰃰 %d.%m}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
 
@@ -247,7 +223,7 @@
     "family": "ipv4",
     "rfkill": true,
 
-    "format-wifi": "WIFI {essid}",
+    "format-wifi": "󰖩 {essid}",
     "format-ethernet": "LAN",
     "format-linked": "LINK",
     "format-disconnected": "DISC",
@@ -263,8 +239,8 @@
   },
 
   "wireplumber": {
-    "format": "VOL {volume}%",
-    "format-muted": "MUT",
+    "format": "  {volume}%",
+    "format-muted": " Muted",
     "interval": 5,
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "exec blueman-manager",
