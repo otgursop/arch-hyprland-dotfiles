@@ -19,7 +19,7 @@ choice=$(echo -e "$options" | fuzzel \
 
 case "$choice" in
     "$lock_icon Lock")
-        hyprlock
+        hyprlock --no-fade-in
         ;;
     "$exit_session_icon Exit Session")
         hyprctl dispatch exit

@@ -1,5 +1,5 @@
 {
-  "height": 27,
+  "height": 23,
   "spacing": 5,
   "position": "top",
 
@@ -134,7 +134,7 @@
     "show-special": true,
     "format": "{icon}",
     "format-icons": {
-        "special": "WE",
+        "special": "we",
         "1": "1",
         "2": "2",
         "3": "3",
@@ -143,7 +143,7 @@
         "6": "6",
         "7": "7",
         "8": "8",
-        "9": "TERM",
+        "9": "term",
         "10": "*"
     },
     "persistent-workspaces": {
@@ -171,8 +171,8 @@
     "interval": 1,
     "dynamic-len": 40,
     "status-icons": {
-      "playing": "󰐊",
-      "paused": "󰏤",
+      "playing": "󰏤",
+      "paused": "󰐊",
       "stopped": "..."
     },
     "dynamic-order": ["artist"]

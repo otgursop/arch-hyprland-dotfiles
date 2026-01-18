@@ -1,6 +1,7 @@
 @define-color background #1D2021;
-@define-color background-rgba rgba(29, 32, 33, 0.95);
+@define-color background-rgba rgba(29, 32, 33, 0.9);
 @define-color second-background #3C3836;
+@define-color third-background #32302F;
 @define-color text #D5C4A1;
 @define-color focused #FBF1C7;
 @define-color focused-darker #F2E5BC;
@@ -14,6 +15,7 @@
 @define-color orange-color #D65D0E;
 @define-color gray-color #3C3836;
 @define-color gray-light-color #504945;
+@define-color gray-light2-color #665C54;
 @define-color purple-color #8F3F71;
 @define-color green-color #79740E;
 @define-color red-color #9D0006;
@@ -39,7 +41,7 @@
 }
 
 window#waybar {
-  background-color: @background;
+  background-color: @background-rgba;
   border-bottom: 0;
   color: @text;
 }
@@ -75,32 +77,29 @@ button {
 
 #workspaces button:not(.empty) {
   color: @text;
-  border-top: 4px solid @aqua-color;
 }
 
 #workspaces button.empty {
-  color: @text;
-  border-top: 4px solid @gray-light-color;
+  color: @gray-light2-color;
 }
 
 #workspaces button:hover {
-  background-color: @second-background;
+  background-color: @background;
+  color: @text;
   transition: background-color;
 }
 
 #workspaces button.active {
-  color: @focused;
-  background-color: @second-background;
+  color: @text;
+  background-color: @third-background;
 }
 
 #workspaces button.special {
   color: @focused;
-  border-top: 4px solid @purple-color;
 }
 
 #workspaces button.urgent {
   color: @text;
-  border-top: 4px solid @red-color;
 }
 
 .modules-right > widget:last-child > #workspaces {
@@ -111,74 +110,60 @@ button {
   margin: 0 0 0 5px;
   padding: 0 5px;
   color: @text;
-  border-top: 4px solid @red-color;
 }
 
 #mpris.playing {
   border-radius: 0;
   color: @text;
-  border-top: 4px solid @aqua-color;
 }
 
 #window {
   color: @focused;
   padding: 0 5px;
-  border-top: 4px solid @gray-light-color;
 }
 
 #network.ethernet {
   color: @text;
-  border-top: 4px solid @blue-color;
 }
 
 #network.wifi {
   color: @text;
-  border-top: 4px solid @aqua-color;
 }
 
 #network.disconnected {
   color: @urgent;
-  border-top: 4px solid @red-color;
 }
 
 #idle_inhibitor {
   color: @focused-darker;
-  border-top: 4px solid @orange-color;
 }
 
 #clock {
   color: @focused;
-  border-top: 4px solid @gray-light-color;
 }
 
 #custom-language {
   color: @text;
-  border-top: 4px solid @orange-color;
 }
 
 #wireplumber {
   color: @focused-darker;
-  border-top: 4px solid @purple-color;
 }
 
 #wireplumber.muted {
   color: @text;
-  border-top: 4px solid @gray-light-color;
 }
 
 #cpu {
   color: @text;
-  border-top: 4px solid @blue-color;
 }
 
 #memory {
   color: @text;
-  border-top: 4px solid @green-color;
 }
 
 #custom-capslock {
   color: @text;
-  border-top: 4px solid @red-color;
 }
 
 #mpris,
@@ -220,7 +205,6 @@ button {
 #tray {
   color: #FFFFFF;
   padding: 0;
-  border-top: 4px solid @gray-light-color;
 }
 
 @keyframes blink {
