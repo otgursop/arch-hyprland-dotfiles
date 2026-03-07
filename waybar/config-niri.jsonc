@@ -95,7 +95,7 @@
     "orientation": "horizontal",
     "modules": [
       "custom/capslock",
-      "hyprland/language"
+      "niri/language"
     ]
   },
 
@@ -123,19 +123,19 @@
   "group/Windows": {
     "orientation": "horizontal",
     "modules": [
-      "hyprland/window"
+      "niri/window"
     ]
   },
 
   "group/Workspaces": {
     "orientation": "horizontal",
     "modules": [
-      "hyprland/workspaces"
+      "niri/workspaces"
     ]
   },
 
-  // Hyprland
-  "hyprland/workspaces": {
+  // niri
+  "niri/workspaces": {
     "show-special": true,
     "format": "{icon}",
     "format-icons": {
@@ -148,27 +148,23 @@
         "6": "6",
         "7": "7",
         "8": "8",
-        "9": "term",
-        "10": "*"
+        "9": "9"
     },
     "persistent-workspaces": {
-      "*": 10
+      "*": 9
     }
   },
 
-  "hyprland/window": {
-    "format": "{title}",
-    "rewrite": {
-      "^$": "<i>Window title</i>"
-    },
-    "icon": false,
+  "niri/window": {
+    "format": "{}",
+    "icon": true,
     "icon-size": 16,
     "max-length": 125,
     "min-length": 5,
     "all-outputs": true
   },
 
-  "hyprland/language": {
+  "niri/language": {
     "format-en": "EN",
     "format-ru": "RU",
     "min-length": 0
@@ -251,21 +247,4 @@
     "icon-size": 20,
     "spacing": 5
   },
-
-  // Custom
-  // "custom/language": {
-  //   "format": "{}",
-  //   "exec": "~/.config/waybar/scripts/keyboard_status.sh", 
-  //   "interval": 1,
-  //   "signal": 5,
-  //   "on-click": "~/.config/waybar/scripts/toggle_layout.sh",
-  //   "tooltip": false
-  // },
-
-  "custom/capslock": {
-    "format": "{} ",
-    "exec": "~/.config/waybar/scripts/capslock_status.sh",
-    "interval": 1,
-    "tooltip": false
-  }
 }
