@@ -199,7 +199,8 @@
 
   "clock": {
     "format": " {:%H:%M  󰃰 %d.%m}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "interval": 10
   },
 
   "idle_inhibitor": {

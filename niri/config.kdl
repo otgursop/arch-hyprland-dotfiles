@@ -4,8 +4,8 @@ prefer-no-csd
 // Input
 input {
     keyboard {
-        repeat-rate 20
-        repeat-delay 350
+        //repeat-rate 20
+        //repeat-delay 350
 
         xkb {
             layout "us,ru"
@@ -33,14 +33,14 @@ input {
 }
 
 // Output
-output "eDP-1" {
+output "DVI-I-1" {
     mode "1920x1080@60.000"
 
     scale 1
 
     transform "normal"
 
-    position x=0 y=0 //x=1280 y=0
+    position x=1280 y=0
 }
 
 // Layout
@@ -138,7 +138,7 @@ spawn-at-startup "swww-daemon"
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
 // Polkit agent
-spawn-sh-at-startup "systemctl --user start hyprpolkitagent"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 // Clipboard
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 
@@ -181,7 +181,7 @@ screenshot-path "~/Pictures/screenshots/scrshot-from-%Y-%m-%d-%H-%M-%S.png"
 // screenshot-path null
 
 animations {
-    // slowdown 3.0
+    //slowdown 3.0
 }
 
 workspace "main" {
@@ -192,22 +192,17 @@ workspace "msgr" {
 }
 
 window-rule {
-  match app-id=r#"librewolf$"#
+  match title=r#"LibreWolf"#
   open-on-workspace "browser"
   open-maximized true
 }
 
 window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
 }
 
-// Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    // This app-id regular expression will work for both:
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
@@ -216,7 +211,6 @@ window-rule {
 }
 
 // Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
 /-window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
@@ -227,10 +221,8 @@ window-rule {
     // block-out-from "screencast"
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
 /-window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 5
     clip-to-geometry true
 }
 
@@ -253,7 +245,7 @@ binds {
     Mod+Shift+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+Shift+T hotkey-overlay-title="Open a Browser: librewolf" { spawn "librewolf"; }
     Mod+E hotkey-overlay-title="Open a File Manager: ranger" { spawn-sh "foot -e yazi"; }
-    Mod+O hotkey-overlay-title="Choose a Menu: fuzzel" { spawn-sh "~/.config/fuzzel/scripts/choose_menu.sh"; }
+    Mod+O hotkey-overlay-title="Choose a Menu: fuzzel" { spawn-sh "~/.config/fuzzel/scripts-niri/choose_menu.sh"; }
     Mod+P hotkey-overlay-title="Run a Command: fuzzel" { spawn-sh "fuzzel --list-executables-in-path --prompt='Execute: '"; }
     Mod+Shift+P hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "fuzzel --prompt='Launch: '"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }

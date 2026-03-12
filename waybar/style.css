@@ -128,6 +128,11 @@ button {
   border-top: 5px solid @second-background;
 }
 
+window#waybar.empty #window {
+  font-style: italic;
+  border-top: 0px;
+}
+
 #network.ethernet {
   color: @text;
   border-top: 5px solid @aqua-color;

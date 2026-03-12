@@ -1,13 +1,13 @@
 {
   // General
   "height": 30,
-  "spacing": 5,
+  "spacing": 12,
   "position": "top",
 
   // Modules
   "modules-left": [
     "group/Workspaces",
-    "custom/dec1",
+    "custom/split",
     "group/Windows"
   ],
 
@@ -43,11 +43,6 @@
   },
 
   "custom/split": {
-    "format": " | ",
-    "tooltip": false
-  },
-
-  "custom/dec1": {
     "format": "|",
     "tooltip": false
   },
@@ -139,7 +134,7 @@
     "show-special": true,
     "format": "{icon}",
     "format-icons": {
-        "special": "we",
+        "special": "sw",
         "1": "1",
         "2": "2",
         "3": "3",
@@ -147,7 +142,7 @@
         "5": "5",
         "6": "6",
         "7": "7",
-        "8": "8",
+        "8": "%",
         "9": "term",
         "10": "*"
     },
@@ -203,7 +198,8 @@
 
   "clock": {
     "format": " {:%H:%M  󰃰 %d.%m}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "interval": 10
   },
 
   "idle_inhibitor": {
