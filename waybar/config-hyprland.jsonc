@@ -19,8 +19,8 @@
     "group/Language",
     "custom/split",
     "group/Volume",
-    "custom/split",
-    "group/System",
+    // "custom/split",
+    // "group/System",
     "custom/split",
     "group/Network",
     "custom/split",
@@ -89,7 +89,6 @@
   "group/Language": {
     "orientation": "horizontal",
     "modules": [
-      "custom/capslock",
       "hyprland/language"
     ]
   },
@@ -235,10 +234,10 @@
     "format": "  {volume}%",
     "format-muted": " Muted",
     "interval": 5,
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "exec blueman-manager",
-    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    // "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    // "on-click-right": "exec blueman-manager",
+    // "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    // "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
     "scroll-step": 5,
     "tooltip-format": "{node_name}"
   },
@@ -257,11 +256,4 @@
   //   "on-click": "~/.config/waybar/scripts/toggle_layout.sh",
   //   "tooltip": false
   // },
-
-  "custom/capslock": {
-    "format": "{} ",
-    "exec": "~/.config/waybar/scripts/capslock_status.sh",
-    "interval": 1,
-    "tooltip": false
-  }
 }

@@ -1,3 +1,7 @@
+#
+# ~/.zshrc
+#
+
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # ZSH path
@@ -25,6 +29,12 @@ if [[ -n $SSH_CONNECTION ]]; then
 alias ls="lsd"
 alias cd="z"
 alias cat="bat"
+
+alias sl="cd ~/.local/sl/"
+alias cdc="cd ~/Code/c/"
+alias cdp="cd ~/Code/cpp/"
+
+alias v="nvim"
 
 #####################
 ### SETTINGS
